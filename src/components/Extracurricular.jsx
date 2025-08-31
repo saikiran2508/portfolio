@@ -1,46 +1,39 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay, Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { styles } from "../styles";
 import { extracurricular } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn } from "../utils/motion";
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 
-const CertificationCard = ({ title, icon, type, date, points, credential }) => (
-  <div className="certification-card bg-tertiary p-6 rounded-2xl w-full h-full flex flex-col justify-between no-select">
-    <div>
-      <div className="relative w-full h-[50px] mb-4">
-        <img
-          src={icon}
-          alt={title}
-          className="w-auto h-full object-contain no-select"
-        />
-      </div>
-      <h3 className="text-white font-bold text-[20px] mb-2 no-select">{title}</h3>
-      <p className="text-secondary text-[12px] mb-1 no-select">{type}</p>
-      <p className="text-secondary text-[12px] mb-3 no-select">{date}</p>
-      <ul className="list-disc ml-5 space-y-1">
-        {points.slice(0, 2).map((point, index) => (
-          <li
-            key={`certification-point-${index}`}
-            className="text-white-100 text-[12px] pl-1 tracking-wider no-select"
-          >
-            {point}
-          </li>
-        ))}
-      </ul>
+const CertificationCard = ({ title, icon, type, date, points = [], credential }) => (
+  <div className="cert-card group">
+    <div className="w-full h-14 mb-4 flex items-center justify-center">
+      <img src={icon} alt={title} className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
     </div>
-    <div className="mt-4 flex justify-end no-select">
+
+    <h3 className="text-white font-semibold text-[22px] leading-7 mb-2">{title}</h3>
+    <p className="text-secondary text-[13px]">{type}</p>
+    <p className="text-secondary text-[13px] mb-3">{date}</p>
+
+    <ul className="list-disc ml-5 space-y-1 flex-1">
+      {points.slice(0, 2).map((p, i) => (
+        <li key={i} className="text-white/90 text-[13px] leading-5">
+          {p}
+        </li>
+      ))}
+    </ul>
+
+    <div className="mt-6 flex justify-end">
       <a
         href={credential}
         target="_blank"
         rel="noopener noreferrer"
-        className="black-gradient text-secondary py-2 px-4 rounded-lg outline-none w-fit text-[12px] font-bold shadow-md shadow-primary transition-all hover:scale-105 hover:shadow-[0_0_10px_rgba(128,0,128,0.7)] no-select"
+        className="btn-cred"
       >
         View Credential
       </a>
@@ -48,163 +41,131 @@ const CertificationCard = ({ title, icon, type, date, points, credential }) => (
   </div>
 );
 
-const Extracurricular = () => {
-  const [isMobile, setIsMobile] = useState(false);
+const CertificationsSlider = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
-  const mainControls = useAnimation();
+  const controls = useAnimation();
 
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-    }
-  }, [isInView, mainControls]);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
+  useEffect(() => { if (isInView) controls.start("visible"); }, [isInView, controls]);
 
   return (
     <div ref={sectionRef}>
       <motion.div
         initial="hidden"
-        animate={mainControls}
-        variants={{
-          hidden: { opacity: 0, y: -20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-        }}
+        animate={controls}
+        variants={{ hidden: { opacity: 0, y: -16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
       >
         <p className={`${styles.sectionSubText} text-center`}>Continuous Learning</p>
-      </motion.div>
-
-      <motion.div
-        initial="hidden"
-        animate={mainControls}
-        variants={{
-          hidden: { opacity: 0, y: -20 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-        }}
-      >
         <h2 className={`${styles.sectionHeadText} text-center`}>Certifications</h2>
       </motion.div>
 
-      <motion.div 
-        variants={fadeIn("up", "spring", 0.5, 0.75)}
+      <motion.div
+        variants={fadeIn("up", "spring", 0.4, 0.75)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="mt-20 flex flex-col items-center"
+        className="mt-16"
       >
         <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          loop={true}
-          spaceBetween={0}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: false, // Disable slide shadows entirely
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
-          className="mySwiper"
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          breakpoints={{
-            1024:{
-              slidesPerView: 3,
-            }
-          }}
-         
+          modules={[Pagination, Autoplay]}
+          centeredSlides
+          slidesPerView="auto"
+          spaceBetween={30}
+          loop
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
+          className="cert-swiper"
         >
-          {extracurricular.map((certification, index) => (
-            <SwiperSlide key={`certification-${index}`}>
-              <CertificationCard {...certification} />
+          {extracurricular.map((c, idx) => (
+            <SwiperSlide key={`cert-${idx}`} className="cert-slide">
+              <CertificationCard {...c} />
             </SwiperSlide>
           ))}
         </Swiper>
       </motion.div>
 
       <style jsx global>{`
-        .mySwiper {
+        .cert-swiper {
           width: 100%;
-          padding-top: 50px;
-          padding-bottom: 50px;
+          padding: 30px 0 60px 0;
         }
-        .swiper-slide {
-          background-position: center;
-          background-size: cover;
-          width: 280px;
-          height: 380px;
+
+        .cert-slide {
+          width: 520px; /* main card width */
+          display: flex;
+          justify-content: center;
+          height: auto;
         }
-        .swiper-slide-active {
-          transform: scale(1.1) !important;
-        }
-        .swiper-slide img {
-          display: block;
-          width: 100%;
-        }
-        .swiper-pagination-bullet {
-          background: #915eff;
-        }
-        .certification-card {
-          background-color: rgba(30, 30, 60, 0.8);
-          backdrop-filter: blur(10px);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          transition: all 0.3s ease-in-out;
-        }
-        .black-gradient {
-          background: #000000;
-          background: -webkit-linear-gradient(to right, #434343, #000000);
-          background: linear-gradient(to right, #434343, #000000);
+
+        @media (max-width: 1024px) {
+          .cert-slide { width: 460px; }
         }
         @media (max-width: 768px) {
-          .swiper-slide {
-            width: 90vw;
-            max-width: 300px;
-            height: auto;
-            min-height: 340px;
-            opacity: 1 !important;
-            transform: scale(1) !important;
-          }
-          .swiper-slide-active {
-            transform: scale(1) !important;
-          }
-          .mySwiper {
-            padding-left: 5vw;
-            padding-right: 5vw;
-          }
-          .certification-card {
-            background-color: rgba(30, 30, 60, 0.8);
-            box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
-          }
-          .swiper-slide-next,
-          .swiper-slide-prev {
-            opacity: 0 !important;
-            visibility: hidden;
-          }
+          .cert-slide { width: 85vw; }
+        }
+
+        /* Slide transition style */
+        .swiper-slide {
+          transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
+          opacity: 0.5;
+          filter: blur(1px);
+          transform: scale(0.9);
+        }
+        .swiper-slide-active {
+          transform: scale(1.05);
+          opacity: 1;
+          filter: blur(0);
+          z-index: 2;
+        }
+
+        /* Pagination dots */
+        .swiper-pagination-bullet {
+          background: #915eff;
+          opacity: 0.4;
+          transition: all 0.3s ease;
+        }
+        .swiper-pagination-bullet-active {
+          background: #c084fc;
+          opacity: 1;
+          width: 14px;
+          height: 14px;
+        }
+
+        /* Card style */
+        .cert-card {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          border-radius: 20px;
+          padding: 24px;
+          background: linear-gradient(145deg, rgba(40,40,70,0.95), rgba(20,20,40,0.9));
+          border: 1px solid rgba(255,255,255,0.1);
+          box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cert-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 40px rgba(145,94,255,0.4);
+        }
+
+        /* Button */
+        .btn-cred {
+          font-size: 13px;
+          font-weight: 700;
+          color: #fff;
+          padding: 8px 14px;
+          border-radius: 12px;
+          background: linear-gradient(90deg, #6d28d9, #4c1d95);
+          box-shadow: 0 6px 18px rgba(109,40,217,0.4);
+          transition: all 0.3s ease;
+        }
+        .btn-cred:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 15px rgba(109,40,217,0.7);
         }
       `}</style>
     </div>
   );
 };
 
-export default SectionWrapper(Extracurricular, "extracurricular");
+export default SectionWrapper(CertificationsSlider, "extracurricular");

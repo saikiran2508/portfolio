@@ -84,7 +84,11 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
+          <img src={logo} alt='logo' className='w-9 h-9 object-contain' style={{
+    background: "transparent",
+    borderRadius: "50%", // makes the logo circular
+    boxShadow: "0 0 12px 2px #915EFF55", // optional: purple glow for blending
+  }}/>
           <motion.p 
             className='text-white text-[18px] font-bold cursor-pointer flex items-center'
             initial={{ opacity: 0, y: -20 }}
@@ -103,7 +107,7 @@ const Navbar = () => {
                 textFillColor: "transparent",
               }} 
             >
-              {"</"}Sunny Patel{">"}
+              {"</"}Sai Kiran Gopu{">"}
             </span>
           </motion.p>
         </Link>

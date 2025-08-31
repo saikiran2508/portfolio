@@ -1,6 +1,6 @@
-import profilepic from './pfp.png';
+import profilepic from './pfp1.png';
 
-import logo from "./logo0.png";
+import logo from "./logo1.png";
 import backend from "./backend.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
@@ -27,6 +27,10 @@ import python from "./tech/python.png"
 import cplusplus from "./tech/c++.svg"
 import typescript from "./tech/typescript.png"
 import threejs from "./tech/threejs.svg"
+import deepai from "./deepai.png"
+import oracle from "./oracle.png";
+import EV from "./EV Network Growth.png";
+
 
 import azure from "./tech/azure.png";
 import powershell from "./tech/powershell.svg"
@@ -47,14 +51,15 @@ import cinema4d from "./tech/cinema4d.png"
 import blender from "./tech/blender.svg"
 
 
-import otu from "./company/otu.png"
-import rhhs from "./company/rhhs.jpg"
-import wonderland from "./company/wonderland.jpg"
+import rit from "./company/RIT.jpg"
+import cvr from "./company/CVR.jpg"
+import eforge from "./company/image.png"
 import mackenziehealth from "./company/mackenziehealth.png"
 import privcurity from "./company/privcurity.jpg"
 import staples from "./company/staples.png"
 import google from "./company/google.png"
 import whmis from "./company/whmis.png"
+import awscert from "./tech/awscert.png";
 import aws from "./tech/aws.png";
 
 import sunnifyimage from "./demonstration 2.jpg"
@@ -65,11 +70,31 @@ import wordsearch from "./wordsearchoutput.jpg"
 import financialflowimage from "./FinancialFlowDemonstration.png"
 import enterpriseapitester from "./enterpriseapiui.png"
 
-import resume from "./Resume-Sunny-Patel.pdf";
+import resume from "./Sai_Kiran_Resume.pdf";
 import awsdbcert from "./AWS Database Specialty Certified - Sunny Jayendra Patel.jpg"
 import connectwisecert from "./Connectwise-Scripting-Certification.pdf"
+import r from "./tech/r.png"
+import ic from "./ic.png"
+import image1 from "./image1.png"
+import image2 from "./image2.png"
+import image3 from "./Image3.png"
+import image4 from "./Image4.png"
+import image5 from "./Image5.png"
+import image6 from "./Image6.png"
 
 export {
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  ic,
+  EV,
+  aws,
+  oracle,
+  r,
+  deepai,
   logo,
   backend,
   mobile,
@@ -89,10 +114,10 @@ export {
   tailwind,
   postgresql,
   mongodb,
-  aws,
-  otu,
-  rhhs,
-  wonderland,
+  awscert,
+  rit,
+  cvr,
+  eforge,
   mackenziehealth,
   privcurity,
   google,

@@ -90,9 +90,9 @@ const Contact = () => {
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: "Sunny Patel",
+          to_name: "Sai Kiran",
           from_email: form.email,
-          to_email: "sunnypatel124555@gmail.com",
+          to_email: "gsaikiran502@gmail.com",
           message: form.message,
         },
         import.meta.env.VITE_EMAIL_JS_ACCESS_TOKEN
@@ -150,11 +150,11 @@ const Contact = () => {
         <div className="flex justify-between items-center mb-4">
           <p className={styles.sectionSubText}>Get in touch</p>
           <a
-            href="tel:+14372161611"
+            href="tel:+15853703742"
             className="text-purple-500 hover:text-purple-400 transition-colors duration-300 flex items-center"
           >
             <FontAwesomeIcon icon={faPhone} className="mr-2" />
-            (437) 216-1611
+            (585) 370-3742
           </a>
         </div>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -217,19 +217,19 @@ const Contact = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Hey Sunny, love the website! I'd like to chat about some opportunities you might like! 🎉"
+              placeholder="Hey Sai, love the website! I'd like to chat about some opportunities you might like! 🎉"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500"
             />
           </label>
 
           {/* 🤖 CAPTCHA Field */}
           <div className="flex justify-center">
-            <ReCAPTCHA
-              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            {/* <ReCAPTCHA
+              // sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
               onChange={(token) => setCaptchaToken(token)}
               theme="dark"
               ref={captchaRef}
-            />
+            /> */}
           </div>
           <span className="text-xs text-gray-400 text-center -mt-2">
             Protected by reCAPTCHA Enterprise. ⚔️

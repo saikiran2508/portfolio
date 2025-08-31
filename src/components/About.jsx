@@ -83,11 +83,11 @@ const About = () => {
             <div className="w-full h-full overflow-hidden">
               <img
                 src={profilepic}
-                alt="Sunny Patel"
+                alt="Sai Kiran"
                 className="w-full h-full object-cover"
                 style={{
                   objectFit: "cover",
-                  objectPosition: "50% 50%",
+                  objectPosition: "50% 30%",
                 }}
               />
             </div>
@@ -108,7 +108,7 @@ const About = () => {
               style={{ boxShadow: "0px 5px 0px 0px rgba(0,0,0,0.6)", transition: "all ease 0.1s" }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open("https://www.linkedin.com/in/sunny-patel-30b460204/", "_blank")}
+              onClick={() => window.open("https://www.linkedin.com/in/saikirangopu/", "_blank")}
             >
               <span className="font-semibold">LinkedIn</span>
             </motion.button>
@@ -118,7 +118,7 @@ const About = () => {
               style={{ boxShadow: "0px 5px 0px 0px rgba(0,0,0,0.6)", transition: "all ease 0.1s" }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.open("https://github.com/sunnypatell", "_blank")}
+              onClick={() => window.open("https://github.com/saikiran2508", "_blank")}
             >
               <span className="font-semibold">GitHub</span>
             </motion.button>
@@ -134,35 +134,46 @@ const About = () => {
             className="mt-4 text-secondary text-[17px] max-w-3xl space-y-6 list-none"
           >
             <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.1, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">👨‍💻</span>
-              <span>
-                I&apos;m a Software Engineer with over 4 years of experience in software development and cloud technologies.
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.2, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">🎓</span>
-              <span>
-                Currently working toward my Honours Bachelor of Science in Computer Science at Ontario Tech University, I&apos;m all about building reliable, scalable software that makes a difference.
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.3, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">🛠</span>
-              <span>
-                From full-stack development to cloud-based solutions, I&apos;ve led enterprise-level projects that streamline operations and deliver real impact.
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.4, 0.75)}>
-              <span className="mr-4 text-2xl flex-shrink-0">🔧</span>
-              <span>
-                I enjoy automating workflows, optimizing systems, and turning complex challenges into real results. 📈
-              </span>
-            </motion.li>
-            <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.5, 0.75)}>
+  <span className="mr-4 text-2xl flex-shrink-0">👨‍💻</span>
+  <span>
+    I'm a Data Science graduate student at RIT (4.0 GPA) with a strong foundation in machine learning, MLOps, and cloud technologies including AWS and Azure.
+  </span>
+</motion.li>
+
+<motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.15, 0.75)}>
+  <span className="mr-4 text-2xl flex-shrink-0">🏛</span>
+  <span>
+    Currently working as a <strong>Research Assistant at RIT</strong> on the iCitizen Congressional Data Visualization Project — automating congressional data pipelines, building interactive U.S. map visualizations of legislators and bills, and managing scalable storage with AWS DynamoDB.
+  </span>
+</motion.li>
+
+<motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.2, 0.75)}>
+  <span className="mr-4 text-2xl flex-shrink-0">📊</span>
+  <span>
+    Previously worked as a Machine Learning Engineer, deploying time-series forecasting models, automating ML pipelines with Docker, and creating real-time dashboards in Tableau using Azure SQL.
+  </span>
+</motion.li>
+
+<motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.25, 0.75)}>
+  <span className="mr-4 text-2xl flex-shrink-0">🛠</span>
+  <span>
+    Built and deployed advanced deep learning models across NLP and computer vision — from multilingual intent detection (BERT) to biomedical NLP (LSTM) and poultry disease classification (CNNs + transfer learning).
+  </span>
+</motion.li>
+
+<motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.3, 0.75)}>
+  <span className="mr-4 text-2xl flex-shrink-0">🔧</span>
+  <span>
+    Passionate about automating workflows, optimizing systems, and turning complex challenges into measurable results. 📈
+  </span>
+</motion.li>
+
+            {/* <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.5, 0.75)}>
               <span className="mr-4 text-2xl flex-shrink-0">💡</span>
               <span>
                 I&apos;m always curious and constantly learning.
               </span>
-            </motion.li>
+            </motion.li> */}
           </motion.ul>
         </motion.div>
       </div>

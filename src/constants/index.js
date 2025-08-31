@@ -1,5 +1,8 @@
 import {
   mobile,
+  EV,
+  r,
+  oracle,
   backend,
   web,
   fullstack,
@@ -12,9 +15,10 @@ import {
   tailwind,
   postgresql,
   git,
-  otu,
-  rhhs,
-  wonderland,
+  rit,
+  cvr,
+  eforge,
+  awscert,
   mackenziehealth,
   privcurity,
   staples,
@@ -50,6 +54,14 @@ import {
   enterpriseapitester,
   github,
   mongodb,
+  deepai,
+  ic,
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
 } from "../assets";
 
 export const navLinks = [
@@ -104,25 +116,27 @@ const services = [
 
 const education = [
   {
-    title: "Honours Computer Science (H. BSc)",
-    company_name: "Ontario Tech University, Oshawa, ON",
-    icon: otu,
+    title: "Master's In Data Science",
+    company_name: "Rochester Institute of Technology, NY, USA",
+    icon: rit,
     iconBg: "#fff",
-    date: "2022 - Present",
+    date: "2024 - Present",
     points: [
-      "Dean's Honours List - Fall 2024",
+      // "Dean's Honours List - Fall 2024",
+      "GPA: 4.0/4.0",
       // "Courses undertaken: Data Structures and Algorithms, OOP, REST API, Software Design, Python Data Analysis, Discrete Mathematics, Computer Architecture, Operating Systems, PostgreSQL.",
     ],
   },
   {
-    title: "High School",
-    company_name: "Richmond Hill High School, ON",
-    icon: rhhs,
+    title: "Bachelor's In ECE",
+    company_name: "CVR College of Engineering, India",
+    icon: cvr,
     iconBg: "#fff",
-    date: "2018-2022",
+    date: "2019-2023",
     points: [
-      "Ontario Scholar",
-      "12th Grade: 96%",
+      // "Ontario Scholar",
+      // "12th Grade: 96%",
+      "GPA: 3.7/4.0",
       ,
     ],
   },
@@ -180,6 +194,10 @@ const technologies = [
   {
     name: "AWS",
     icon: aws,
+  },
+  {
+    name: "R",
+    icon: r,
   },
 ];
 
@@ -254,264 +272,212 @@ const designTools = [
 
 const experiences = [
   {
-    title: "IT Technician - Canada's Wonderland",
-    company_name: "Canada's Wonderland",
-    icon: wonderland,
+    title: "Research Assistant, RIT - iCitizen Congressional Data Visualization",
+    company_name: "Rochester Institute of Technology",
+    icon: ic,
     iconBg: "#fff",
-    date: "Jun. 2023 - Present",
+    date: "Aug 2024 – Present",
     points: [
-      "Provisioned Windows PCs with MDT, and deployed scripting via PowerShell and ConnectWise.",
-      "Managed AD accounts to propagate ACLs and unified access across in-house apps, Exchange, and SharePoint.",
-      "Configured Cisco CUCM, Unity, and Finesse for stable call routing and voicemail services.",
-      "Handled switch patching and VLAN/routing via PuTTY & SecureCRT, ensuring stable network performance.",
-      "Deployed Oracle POS/KDS/Debit solutions (EMC, Simphony), tracking updates in Jira & Confluence.",
+      "Automated the collection and standardization of congressional datasets from Congress.gov and Bioguide, covering members of Congress from the 1st Congress (1789) to present.",
+      "Built an interactive U.S. map visualization linking each state to its senators, representatives, and the bills they sponsor/support, enabling stakeholders to identify the right legislators for policy advocacy.",
+      "Deployed scalable data storage and retrieval with AWS DynamoDB, ensuring efficient query performance and supporting downstream analytics and visual dashboards.",
+      "Applied data engineering and visualization techniques (Python, Pandas, Requests, SQL, Power BI/Tableau, Geospatial libraries) to deliver actionable insights for academic and institutional stakeholders.",
     ],
-  },
+},
+
   {
-    title: "System Support Specialist - Mackenzie Health",
-    company_name: "Mackenzie Health",
-    icon: mackenziehealth,
+    title: "Machine Learning Engineer",
+    company_name: "EFORGE NEXGEN INNOVATIONS",
+    icon: eforge,
     iconBg: "#fff",
-    date: "Jan. 2023 - Aug. 2023",
+    date: "Sep. 2023 - Jul. 2024",
     points: [
-      "Overhauled 400+ Surface tablets to bedside iPads, deploying the in-house 'Get Well Soon' app with Intune to hospital systems.",
-      "Developed and refined an admin portal for managing app services, user roles, and subscription expirations.",
-      "Utilized Jamf Pro for MDM, securely deploying iPads/iPhones across clinical departments.",
-      "Implemented Vocera VOIP on iPhones, enabling real-time communication among nurses and ER staff.",
-      "Performed in-room checks, resolved device issues, and collaborated with vendors on bug logs and system updates.",
+      "Engineered and deployed ML pipelines in Python (Pandas, Scikit-learn) for time series forecasting using regression and ARIMA models, delivering actionable environmental predictions and collaborating with cross-functional teams.",
+      "Optimized data ingestion pipelines using SQL and AWS IoT Core to ensure seamless time-series data capture, maintained high predictive accuracy through automated retraining pipelines.",
+      "Applied MLOps practices for deploying forecasting models via AWS Elastic Beanstalk and automated retraining with Docker, performed SQL-based analysis for forecasting and decision support.",
+      "Built Tableau dashboards using Azure SQL and DAX to visualize time-series data trends, supporting actionable insights for decision-making, demonstrated strong analytical skills and attention to detail.",
+      // "Deployed Oracle POS/KDS/Debit solutions (EMC, Simphony), tracking updates in Jira & Confluence.",
     ],
   },
-  {
-    title: "Tech Sales Associate - Staples Canada",
-    company_name: "Staples Canada (Co-op)",
-    icon: staples,
-    iconBg: "#1294C8",
-    date: "Sep. 2020 - Feb. 2021",
-    points: [
-      "Provided specialized support for Windows, Mac, and Linux, performing on-site installations, repairs, and optimizations.",
-      "Streamlined inventory processes by handling SKUs and POs, maintaining a well-organized sales floor.",
-      "Maintained accurate sales and inventory data in IBM AS/400, improving workflows and operational efficiency.",
-      "Resolved complex technical inquiries, delivering tailored solutions that ensured high customer satisfaction.",
-      "Facilitated e-commerce transactions, merging in-store and online channels.",
-    ],
-  },
+  // {
+  //   title: "Tech Sales Associate - Staples Canada",
+  //   company_name: "Staples Canada (Co-op)",
+  //   icon: staples,
+  //   iconBg: "#1294C8",
+  //   date: "Sep. 2020 - Feb. 2021",
+  //   points: [
+  //     "Provided specialized support for Windows, Mac, and Linux, performing on-site installations, repairs, and optimizations.",
+  //     "Streamlined inventory processes by handling SKUs and POs, maintaining a well-organized sales floor.",
+  //     "Maintained accurate sales and inventory data in IBM AS/400, improving workflows and operational efficiency.",
+  //     "Resolved complex technical inquiries, delivering tailored solutions that ensured high customer satisfaction.",
+  //     "Facilitated e-commerce transactions, merging in-store and online channels.",
+  //   ],
+  // },
 ];
 
 
 const extracurricular = [
   {
-    title: "MongoDB Python Developer Path",
+    title: "AWS Certified Cloud Practitioner",
     type: "Proof of Completion",
-    icon: mongodb,
+    icon: awscert,
     iconBg: "#000000",
-    date: "Feb 2025",
-    points: ["PyMongo, NoSQL Schema Design, Data Aggregation, MongoDB Query Optimization"],
-    credential: "https://learn.mongodb.com/c/tf2DSC7hTcyM3NBZjkLPoA",
+    date: "July 2025",
+    points: ["AWS Core services, cloud concepts, security, architecture, and billing."],
+    credential: "https://www.credly.com/badges/8cd4fb42-da39-4f5e-9471-33115c71ad1d/public_url",
   },
   {
-    title: "Github Foundations",
+    title: "Machine Learning Specialization",
     type: "Professional Certificate",
-    icon: github,
+    icon: deepai,
     iconBg: "#000000",
-    date: "Issued: Sep 2024 - Expires: Sep 2027",
-    points: ["Version Control, Git, Actions, CI/CD, Repository Management, SAP Workflow"],
-    credential: "https://www.credly.com/badges/b6f69785-2da8-447e-b02c-3350bf9af803",
+    date: "Issued: April 2024",
+    points: ["Supervised Machine Learning: Regression and Classification",
+              "Advanced Learning Algorithms",
+              "Unsupervised Learning, Recommenders, Reinforcement Learning"],
+    credential: "https://drive.google.com/file/d/1x-yXmGHTGpdQ-PQIpi2VsYC9w4tlT6iv/view?usp=sharing",
   },
   {
-    title: "Certified Enterprise Scripting Architect",
-    type: "Automate | Connectwise University",
-    icon: connectwise,
+    title: "Database Programming with SQL",
+    type: "Oracle Certification",
+    icon: oracle,
     iconBg: "#748C7B",
-    date: "Jul 2024",
-    points: ["RMM, MDM, Powershell, Scripting, Windows Server, Enterprise Architecture, Query Optimization"],
-    credential: connectwisecert,
+    date: "30th April 2022",
+    points: ["Gained hands-on experience and validated my skills in database programming and SQL through the Oracle Academy certification program."],
+    credential: "https://drive.google.com/file/d/1a6oZ_z3Rl5TOefyqsKbj5aj2C6blKICl/view?usp=sharing",
   },
-  {
-    title: "Google IT Automation With Python",
-    type: "Professional Certificate",
-    icon: google,
-    iconBg: "#050C18",
-    date: "Mar 2023",
-    points: [
-      "Configuration Management, Automation, Google Cloud Platform (GCP), Cloud Servers and VM's, Version Control Tools, Automation.",
-    ],
-    credential: "https://www.coursera.org/account/accomplishments/specialization/certificate/82SZFUWF4B3T",
-  },
-  {
-    title: "WHMIS (Worker Health and Safety)",
-    type: "Government Workforce Requirement",
-    icon: whmis,
-    iconBg: "#CCCFD8",
-    date: "Sep 2020",
-    points: ["Hazard Awareness, Legal Compliance, Personal Protection, Accident Prevention"],
-  },
+  // {
+  //   title: "Google IT Automation With Python",
+  //   type: "Professional Certificate",
+  //   icon: google,
+  //   iconBg: "#050C18",
+  //   date: "Mar 2023",
+  //   points: [
+  //     "Configuration Management, Automation, Google Cloud Platform (GCP), Cloud Servers and VM's, Version Control Tools, Automation.",
+  //   ],
+  //   credential: "https://www.coursera.org/account/accomplishments/specialization/certificate/82SZFUWF4B3T",
+  // },
+  // {
+  //   title: "WHMIS (Worker Health and Safety)",
+  //   type: "Government Workforce Requirement",
+  //   icon: whmis,
+  //   iconBg: "#CCCFD8",
+  //   date: "Sep 2020",
+  //   points: ["Hazard Awareness, Legal Compliance, Personal Protection, Accident Prevention"],
+  // },
 ];
 
 const projects = [
+  // {
+  //   name: "FinancialFlow 💸",
+  //   description:
+  //     "Comprehensive personal finance management application built with Next.js and Typescript. It empowers users to take control of their financial health through intuitive tracking, insightful analytics, and personalized recommendations.",
+  //   tags: [
+  //     {
+  //       name: "React-native",
+  //       color: "blue-text-gradient",
+  //     },
+  //     {
+  //       name: "Typescript",
+  //       color: "green-text-gradient",
+  //     },
+  //     {
+  //       name: "Tailwind CSS",
+  //       color: "pink-text-gradient",
+  //     },
+  //     {
+  //       name: "Next.js",
+  //       color: "blue-text-gradient",
+  //     },
+  //   ],
+  //   image: financialflowimage,
+  //   source_code_link: "https://github.com/sunnypatell/financialflow",
+  //   // live_project_link: "https://financial-flow.vercel.app/",
+  // },
   {
-    name: "FinancialFlow 💸",
-    description:
-      "Comprehensive personal finance management application built with Next.js and Typescript. It empowers users to take control of their financial health through intuitive tracking, insightful analytics, and personalized recommendations.",
-    tags: [
-      {
-        name: "React-native",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Typescript",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Tailwind CSS",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Next.js",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: financialflowimage,
-    source_code_link: "https://github.com/sunnypatell/financialflow",
-    live_project_link: "https://financial-flow.vercel.app/",
-  },
-  {
-    name: "Sunnify (Spotify Downloader) ♫",
-    description:
-      "Sunnify is a Spotify downloader webapp/desktop application that allows you to download entire playlists locally onto your Mac/Linux/Windows PC. The web version of the app is hosted on AWS Lambda and Elastic Beanstalk, with FastAPI ASGI production.",
-    tags: [
-      {
-        name: "python",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "webscraping",
-        color: "green-text-gradient",
-      },
-      {
-        name: "AWS Lambda/Beanstalk",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Proxy/API",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: sunnifyimage,
-    source_code_link: "https://github.com/sunnypatell/sunnify-spotify-downloader",
-    live_project_link: "https://sunnify-spotify-downloader.vercel.app/",
-  },
-  {
-    name: "Enterprise API Tester 🌐",
-    description:
-      "Comprehensive API testing tool with support for all major HTTP methods, authentication, and CORS-friendly proxy. Features include request import/export, real-world samples, and local storage for data persistence. Built with Next.js, and TypeScript for optimal performance and developer experience.",
-    tags: [
-      {
-        name: "Typescript",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Tailwind CSS",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Next.js",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Authentication-Body",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: enterpriseapitester,
-    source_code_link: "https://github.com/sunnypatell/enterprise-api-request-tester",
-    live_project_link: "https://enterprise-api-request-tester.vercel.app/",
-  },
-  {
-    name: "KnifeThrow 🎯",
-    description:
-      "KnifeThrow is a Java Swing-based 2D mini-game, packed by maven with over 5000 lines of code. It includes a menu, game-over screens, sound effects, and custom sprites. Players unlock different knives with varied abilities in a dedicated knife shop. The game features improved collision systems, animations, and particle effects for an immersive experience.",
-    tags: [
-      {
-        name: "java",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "swing",
-        color: "green-text-gradient",
-      },
-      {
-        name: "maven",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "arcadegame",
-        color: "green-text-gradient",
-      },
-    ],
-    image: knifethrowimage,
-    source_code_link: "https://github.com/sunnypatell/KnifeThrow",
-    live_project_link: "https://github.com/sunnypatell/KnifeThrow",
-  },
-  {
-    name: "COVID-19 GTA Cases Data Analysis 🧪",
-    description:
-      "A deep dive into ongoing COVID-19 outbreaks in the Greater Toronto Area (GTA), Ontario. Using data from a government-licensed dataset called Outbreaks by Public Health Unit (PHU) to explore trends and patterns in these outbreaks. This data analysis integrates the essential aspects of the data science workflow (Filesize: 3.5 MiB, 62699 lines of raw dataset)",
-    tags: [
-      {
-        name: "python",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "tensorflow",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scikit-learn",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "pandas",
-        color: "green-text-gradient",
-      },
-      {
-        name: "matplotlib",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "numpy",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: pythonanalysis,
-    source_code_link: "https://drive.google.com/drive/folders/1cTbp-6-flypV-kj3-q606UwwWEralu11",
-    live_project_link: "https://drive.google.com/drive/folders/1cTbp-6-flypV-kj3-q606UwwWEralu11",
-  },
-  {
-    name: "Secure Password Generator 🔐",
-    description:
-      "Secure Password Generator is a Java-based tool designed to generate and manage secure passwords, prioritizing simplicity, security, and user-friendliness. It employs industry-standard encryption algorithms to create strong, unique passwords resistant to common hacking attempts.",
-    tags: [
-      {
-        name: "java",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "sha-256",
-        color: "green-text-gradient",
-      },
-      {
-        name: "encryption/decryption",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "data-algorithms",
-        color: "blue-text-gradient",
-      },
-    ],
-    image: password_generator,
-    source_code_link: "https://github.com/sunnypatell/SecurePasswordGenerator",
-    live_project_link: "https://github.com/sunnypatell/SecurePasswordGenerator",
-  },
+  name: "Joint Intent Detection System 🗣️",
+  description:
+    "BERT-based multilingual intent classification system with out-of-scope detection to reduce false positives. Achieved 96.5% accuracy and deployed as a RESTful API on Heroku for real-time chatbot reliability.",
+  tags: [
+    { name: "PyTorch", color: "blue-text-gradient" },
+    { name: "Transformers", color: "green-text-gradient" },
+    { name: "NLP", color: "pink-text-gradient" },
+    { name: "API", color: "blue-text-gradient" },
+  ],
+  image: image1,
+  source_code_link: "https://github.com/saikiran2508/JOINT-INTENT-DETECTION-SYSTEM",
+  // live_project_link: "https://github.com/saikiran2508/JOINT-INTENT-DETECTION-SYSTEM",
+},
+{
+  name: "EV Charging Station Analysis ⚡",
+  description:
+    "Pipeline for cleaning EV station data, spatial database integration, and geospatial SQL analysis. Tableau dashboards revealed growth trends, rural coverage gaps, and operator market share insights.",
+  tags: [
+    { name: "Python", color: "blue-text-gradient" },
+    { name: "PostgreSQL", color: "green-text-gradient" },
+    { name: "SQL", color: "pink-text-gradient" },
+    { name: "Tableau", color: "blue-text-gradient" },
+  ],
+  image: image2,
+  source_code_link: "https://github.com/saikiran2508/EV-Charging-Station-Analysis",
+  // live_project_link: "https://github.com/saikiran2508/EV-Charging-Station-Analysis",
+},
+{
+  name: "SkimLit NLP Project 📖",
+  description:
+    "Hybrid-embedding LSTM NLP model to classify biomedical abstracts into structured segments (objectives, methods, results). Reduced literature review time by 33% and achieved 83% accuracy.",
+  tags: [
+    { name: "TensorFlow", color: "blue-text-gradient" },
+    { name: "Deep Learning", color: "green-text-gradient" },
+    { name: "NLP", color: "pink-text-gradient" },
+  ],
+  image: image3,
+  source_code_link: "https://github.com/saikiran2508/SkimLit_NLP_Project",
+  // live_project_link: "https://github.com/saikiran2508/SkimLit_NLP_Project",
+},
+{
+  name: "Chicken Disease Classification 🐔",
+  description:
+    "VGG16-based CNN model using transfer learning to detect poultry diseases with 87% accuracy. Deployed via CI/CD pipeline on AWS EC2 with Docker and DVC for dataset management.",
+  tags: [
+    { name: "AWS", color: "blue-text-gradient" },
+    { name: "CNN", color: "green-text-gradient" },
+    { name: "Docker", color: "pink-text-gradient" },
+    { name: "Flask", color: "blue-text-gradient" },
+  ],
+  image: image5,
+  source_code_link: "https://github.com/saikiran2508/chicken_disease_classification_project",
+  // live_project_link: "https://github.com/saikiran2508/chicken_disease_classification_project",
+},
+{
+  name: "Food Vision 101 🍲",
+  description:
+    "EfficientNetB0-based deep learning model trained on 101 food classes. Achieved 79.2% accuracy with TensorBoard visualization, fine-tuned layers, and mixed precision training for 3x faster GPU performance.",
+  tags: [
+    { name: "TensorFlow", color: "blue-text-gradient" },
+    { name: "EfficientNetB0", color: "green-text-gradient" },
+    { name: "Deep Learning", color: "pink-text-gradient" },
+    { name: "Jupyter", color: "blue-text-gradient" },
+  ],
+  image: image4,
+  source_code_link: "https://github.com/saikiran2508/FOOD_VISION_101_EfficientNetB0_Model",
+  // live_project_link: "https://github.com/saikiran2508/FOOD_VISION_101_EfficientNetB0_Model",
+},
+{
+  name: "Plant Disease Detection 🌱",
+  description:
+    "CNN-based model trained on the PlantVillage dataset with 54,305 leaf images across 38 plant disease classes. Designed for early diagnosis to aid farmers in protecting crops and improving agricultural yield.",
+  tags: [
+    { name: "CNN", color: "blue-text-gradient" },
+    { name: "Google Colab", color: "green-text-gradient" },
+    { name: "Deep Learning", color: "pink-text-gradient" },
+    { name: "Python", color: "blue-text-gradient" },
+  ],
+  image: image6,
+  source_code_link: "https://github.com/saikiran2508/Plant_Disease_Detection",
+  // live_project_link: "https://github.com/saikiran2508/Plant_Disease_Detection",
+}
+  
 ];
 
 const testimonials = [

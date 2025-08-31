@@ -70,10 +70,9 @@ const WavingHand = () => {
 
 const Hero = () => {
   const typedItems = [
-    "Software Developer",
-    "Systems Administrator",
-    "Computer Enthusiast",
-    "Team Leader"
+    "Data Scientist",
+    "Machine Learning Engineer",
+    "Data Analyst"
   ];
 
   return (
@@ -104,7 +103,7 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">Sunny</span> <WavingHand />
+            Hi, I'm <span className="text-[#915EFF]">Sai Kiran</span> <WavingHand />
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             I'm a <TypewriterText texts={typedItems} />
