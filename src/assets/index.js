@@ -59,7 +59,7 @@ import privcurity from "./company/privcurity.jpg"
 import staples from "./company/staples.png"
 import google from "./company/google.png"
 import whmis from "./company/whmis.png"
-import awscert from "./tech/awscert.png";
+import awscert from "./tech/AWScert.png";
 import aws from "./tech/aws.png";
 
 import sunnifyimage from "./demonstration 2.jpg"
