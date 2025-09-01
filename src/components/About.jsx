@@ -143,7 +143,7 @@ const About = () => {
 <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.15, 0.75)}>
   <span className="mr-4 text-2xl flex-shrink-0">🏛</span>
   <span>
-    Currently working as a <strong>Research Assistant at RIT</strong> on the iCitizen Congressional Data Visualization Project — automating congressional data pipelines, building interactive U.S. map visualizations of legislators and bills, and managing scalable storage with AWS DynamoDB.
+    Currently working as a <strong>Research Assistant at RIT</strong> on the iCitizen Congressional Data Visualization Project automating congressional data pipelines, building interactive U.S. map visualizations of legislators and bills, and managing scalable storage with AWS DynamoDB.
   </span>
 </motion.li>
 
@@ -157,7 +157,7 @@ const About = () => {
 <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.25, 0.75)}>
   <span className="mr-4 text-2xl flex-shrink-0">🛠</span>
   <span>
-    Built and deployed advanced deep learning models across NLP and computer vision — from multilingual intent detection (BERT) to biomedical NLP (LSTM) and poultry disease classification (CNNs + transfer learning).
+    Built and deployed advanced deep learning models across NLP and computer vision from multilingual intent detection (BERT) to biomedical NLP (LSTM) and poultry disease classification (CNNs + transfer learning).
   </span>
 </motion.li>
 

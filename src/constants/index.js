@@ -272,7 +272,7 @@ const designTools = [
 
 const experiences = [
   {
-    title: "Research Assistant, RIT - iCitizen Congressional Data Visualization",
+    title: "Research Assistant, RIT - iCitizen Project",
     company_name: "Rochester Institute of Technology",
     icon: ic,
     iconBg: "#fff",
