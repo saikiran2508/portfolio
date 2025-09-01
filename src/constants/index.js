@@ -276,7 +276,7 @@ const experiences = [
     company_name: "Rochester Institute of Technology",
     icon: ic,
     iconBg: "#fff",
-    date: "Aug 2024 – Present",
+    date: "May 2025 – Present",
     points: [
       "Automated the collection and standardization of congressional datasets from Congress.gov and Bioguide, covering members of Congress from the 1st Congress (1789) to present.",
       "Built an interactive U.S. map visualization linking each state to its senators, representatives, and the bills they sponsor/support, enabling stakeholders to identify the right legislators for policy advocacy.",
