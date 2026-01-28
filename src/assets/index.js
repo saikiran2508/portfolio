@@ -76,10 +76,10 @@ import connectwisecert from "./Connectwise-Scripting-Certification.pdf"
 import r from "./tech/r.png"
 import ic from "./ic.png"
 import image1 from "./image1.jpg"
-import image2 from "./image2.jpg"
+import image2 from "./Image2.jpg"
 import image3 from "./image3.jpg"
 import image4 from "./Image4.jpg"
-import image5 from "./Image.png"
+import image5 from "./image.png"
 import image6 from "./Image6.png"
 
 export {
