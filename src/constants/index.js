@@ -123,7 +123,7 @@ const education = [
     date: "2024 - Present",
     points: [
       // "Dean's Honours List - Fall 2024",
-      "GPA: 4.0/4.0",
+      "GPA: 3.8/4.0",
       // "Courses undertaken: Data Structures and Algorithms, OOP, REST API, Software Design, Python Data Analysis, Discrete Mathematics, Computer Architecture, Operating Systems, PostgreSQL.",
     ],
   },
@@ -272,16 +272,16 @@ const designTools = [
 
 const experiences = [
   {
-    title: "Research Assistant, RIT - iCitizen Project",
+    title: "ICITIZEN COMPANY - RIT",
     company_name: "Rochester Institute of Technology",
     icon: ic,
     iconBg: "#fff",
     date: "May 2025 – Present",
     points: [
-      "Automated the collection and standardization of congressional datasets from Congress.gov and Bioguide, covering members of Congress from the 1st Congress (1789) to present.",
-      "Built an interactive U.S. map visualization linking each state to its senators, representatives, and the bills they sponsor/support, enabling stakeholders to identify the right legislators for policy advocacy.",
-      "Deployed scalable data storage and retrieval with AWS DynamoDB, ensuring efficient query performance and supporting downstream analytics and visual dashboards.",
-      "Applied data engineering and visualization techniques (Python, Pandas, Requests, SQL, Power BI/Tableau, Geospatial libraries) to deliver actionable insights for academic and institutional stakeholders.",
+      "Built automated pipelines to collect and integrate congressional data from multiple web sources, standardizing 20K+ legislative records spanning 200+ years (1st Congress to present) into a single structured dataset for legislative analysis.",
+      "Developed interactive U.S. map visualizations linking states to representatives, senators, and their sponsored bills, enabling citizens and organizations to track legislative activity, analyze representation, and influence policymaking.",
+      "Implemented scalable data storage and retrieval with AWS DynamoDB and S3, enabling efficient analytics, seamless data access, and interactive visualizations to support decision-making.",
+      // "Applied data engineering and visualization techniques (Python, Pandas, Requests, SQL, Power BI/Tableau, Geospatial libraries) to deliver actionable insights for academic and institutional stakeholders.",
     ],
 },
 
@@ -292,11 +292,15 @@ const experiences = [
     iconBg: "#fff",
     date: "Sep. 2023 - Jul. 2024",
     points: [
-      "Engineered and deployed ML pipelines in Python (Pandas, Scikit-learn) for time series forecasting using regression and ARIMA models, delivering actionable environmental predictions and collaborating with cross-functional teams.",
-      "Optimized data ingestion pipelines using SQL and AWS IoT Core to ensure seamless time-series data capture, maintained high predictive accuracy through automated retraining pipelines.",
-      "Applied MLOps practices for deploying forecasting models via AWS Elastic Beanstalk and automated retraining with Docker, performed SQL-based analysis for forecasting and decision support.",
-      "Built Tableau dashboards using Azure SQL and DAX to visualize time-series data trends, supporting actionable insights for decision-making, demonstrated strong analytical skills and attention to detail.",
+      // "Engineered and deployed ML pipelines in Python (Pandas, Scikit-learn) for time series forecasting using regression and ARIMA models, delivering actionable environmental predictions and collaborating with cross-functional teams.",
+      // "Optimized data ingestion pipelines using SQL and AWS IoT Core to ensure seamless time-series data capture, maintained high predictive accuracy through automated retraining pipelines.",
+      // "Applied MLOps practices for deploying forecasting models via AWS Elastic Beanstalk and automated retraining with Docker, performed SQL-based analysis for forecasting and decision support.",
+      // "Built Tableau dashboards using Azure SQL and DAX to visualize time-series data trends, supporting actionable insights for decision-making, demonstrated strong analytical skills and attention to detail.",
       // "Deployed Oracle POS/KDS/Debit solutions (EMC, Simphony), tracking updates in Jira & Confluence.",
+      "Designed data pipelines to process 15K+ daily weather station records, converting raw sensor data into structured datasets for time-series forecasting in Python (Pandas, Scikit-learn) using regression and ARIMA models.",
+      "Deployed forecasting models on AWS Elastic Beanstalk, implementing automated retraining pipelines with Docker to maintain +92% predictive accuracy, while performing SQL - driven analysis that reduced reporting latency by 30%.",
+      "Built Power BI dashboards with Azure SQL and DAX to visualize time-series trends and produced analytical reports translating model outputs into actionable insights for stakeholder decision-making.",
+
     ],
   },
   // {
@@ -323,7 +327,10 @@ const extracurricular = [
     icon: awscert,
     iconBg: "#000000",
     date: "July 2025",
-    points: ["AWS Core services, cloud concepts, security, architecture, and billing."],
+    points: ["AWS Core services, cloud concepts, security, architecture, and billing.",
+              "Proficient in deploying scalable solutions using EC2, S3, and RDS while ensuring security through the AWS Shared Responsibility Model.",
+              // "Security & Compliance: Understanding of AWS security best practices, identity and access management (IAM), and compliance frameworks."
+    ],
     credential: "https://www.credly.com/badges/8cd4fb42-da39-4f5e-9471-33115c71ad1d/public_url",
   },
   {

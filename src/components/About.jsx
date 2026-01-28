@@ -136,7 +136,7 @@ const About = () => {
             <motion.li className="flex items-start" variants={fadeIn("up", "spring", 0.1, 0.75)}>
   <span className="mr-4 text-2xl flex-shrink-0">👨‍💻</span>
   <span>
-    I'm a Data Science graduate student at RIT (4.0 GPA) with a strong foundation in machine learning, MLOps, and cloud technologies including AWS and Azure.
+    I'm a Data Science graduate student at RIT (3.8 GPA) with a strong foundation in machine learning, MLOps, and cloud technologies including AWS and Azure.
   </span>
 </motion.li>
 
