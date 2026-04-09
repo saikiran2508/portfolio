@@ -81,6 +81,8 @@ import image3 from "./image3.jpg"
 import image4 from "./Image4.jpg"
 import image5 from "./image.png"
 import image6 from "./Image6.png"
+import image7 from "./Image7.png"
+import image8 from "./Image8.png"
 
 export {
   image1,
@@ -89,6 +91,8 @@ export {
   image4,
   image5,
   image6,
+  image7,
+  image8,
   ic,
   EV,
   aws,

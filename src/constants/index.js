@@ -62,6 +62,8 @@ import {
   image4,
   image5,
   image6,
+  image7,
+  image8,
 } from "../assets";
 
 export const navLinks = [
@@ -401,6 +403,34 @@ const projects = [
   //   source_code_link: "https://github.com/sunnypatell/financialflow",
   //   // live_project_link: "https://financial-flow.vercel.app/",
   // },
+  {
+  name: "NBA Analytics Dashboard 🏀",
+  description:
+    "Interactive NBA team and player analytics dashboard built with Plotly Dash. Features bar, line, pie, scatter, and grouped bar charts with dynamic filters for season, conference, and metric. Deployed live on Render.",
+  tags: [
+    { name: "Python", color: "blue-text-gradient" },
+    { name: "Plotly Dash", color: "green-text-gradient" },
+    { name: "Pandas", color: "pink-text-gradient" },
+    { name: "Render", color: "blue-text-gradient" },
+  ],
+  image: image8, // replace with your NBA dashboard screenshot
+  source_code_link: "https://github.com/saikiran2508/NBA-Analytics-Dashboard",
+  live_project_link: "https://nba-analytics-dashboard-1-ch0j.onrender.com/", // replace with your actual Render URL
+},
+{
+  name: "RIT Institutional Research Dashboard 📊",
+  description:
+    "3-page Power BI dashboard built using real RIT data from the 2023-24 Common Data Set and IPEDS. Covers enrollment trends, admissions funnel, graduation rates, student demographics, and financial aid analysis.",
+  tags: [
+    { name: "Power BI", color: "blue-text-gradient" },
+    { name: "DAX", color: "green-text-gradient" },
+    { name: "IPEDS", color: "pink-text-gradient" },
+    { name: "Data Analytics", color: "blue-text-gradient" },
+  ],
+  image: image7, // replace with your Power BI dashboard screenshot
+  // source_code_link: "https://github.com/saikiran2508", // no code repo for Power BI
+  live_project_link: "https://drive.google.com/file/d/1hfVYjT8a4yQNYxfVPeVVln8LlZWU0cWN/view?usp=sharing", // paste your Power BI service link here
+},
   {
   name: "Joint Intent Detection System 🗣️",
   description:
