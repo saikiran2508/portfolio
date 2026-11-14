@@ -164,7 +164,7 @@ export function Hero() {
           <TiltCard max={10} className="animate-float rounded-[28px]">
             <div ref={photoRef} className="relative">
               <div className="glow-ring" aria-hidden />
-              <img src={profile.photo} alt={`Portrait of ${profile.name}`} width="600" height="900"
+              <img src={profile.photo} alt={`Portrait of ${profile.name}`} width="600" height="750"
                 className="relative aspect-[4/5] w-full rounded-3xl border border-line object-cover object-top" />
             </div>
           </TiltCard>
