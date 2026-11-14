@@ -1,9 +1,12 @@
 import { Navbar, Hero, About, Experience, Projects, Skills, Education, Footer } from "./components/Sections.jsx";
 import Contact from "./components/Contact.jsx";
+import { MotionConfig } from "framer-motion";
+import { ScrollProgress } from "./components/Motion.jsx";
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
+      <ScrollProgress />
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
       <Navbar />
       <main id="main">
@@ -16,6 +19,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }

@@ -77,6 +77,20 @@ export const experience = [
 export const featuredProjects = [
   {
     title: "Congressional GraphRAG + MCP",
+    category: "GenAI",
+    chart: {
+      type: "hbar", unit: "%", max: 100,
+      title: "Grounding the LLM in a knowledge graph",
+      subtitle: "Share of 30 benchmark questions answered correctly",
+      bars: [
+        { label: "Flash-Lite (cautious)", value: 0, color: "base", note: "97% declined" },
+        { label: "Flash-Lite, no graph", value: 3, color: "base", note: "27% hallucinated" },
+        { label: "Gemini 3.1 Pro, no graph", value: 3, color: "base", note: "17% hallucinated" },
+        { label: "MCP agent + graph", value: 90, color: "blue", note: "0% hallucinated" },
+        { label: "GraphRAG + graph", value: 100, color: "blue", note: "0% hallucinated" },
+      ],
+      callout: "0% hallucination with the graph",
+    },
     kicker: "LLM systems · Research",
     image: "/projects/icitizen-graphrag.jpg",
     summary:
@@ -92,6 +106,17 @@ export const featuredProjects = [
   },
   {
     title: "Flight Delay Risk Prediction",
+    category: "ML",
+    chart: {
+      type: "vbar", unit: "%",
+      title: "Flight delay risk model (LightGBM)",
+      subtitle: "Delay rate: all test flights vs. the model's top-10% risk flights",
+      bars: [
+        { label: "All test flights (base rate)", value: 21.8, color: "base" },
+        { label: "Top-10% predicted risk", value: 59.3, color: "blue" },
+      ],
+      callout: "2.7× lift · ROC-AUC 0.733",
+    },
     kicker: "Machine learning",
     image: "/projects/flight-delay.jpg",
     summary:
@@ -106,6 +131,18 @@ export const featuredProjects = [
   },
   {
     title: "A/B Test Analysis & Uplift Modeling",
+    category: "Analytics",
+    chart: {
+      type: "vbar", unit: "%",
+      title: "Email campaign A/B test (64K customers)",
+      subtitle: "Site-visit rate by randomized group, two-week window",
+      bars: [
+        { label: "No email (control)", value: 10.6, color: "base" },
+        { label: "Women's email", value: 15.1, color: "orange", delta: "+43%" },
+        { label: "Men's email", value: 18.3, color: "blue", delta: "+72%" },
+      ],
+      callout: "All 6 effects significant (Holm-corrected)",
+    },
     kicker: "Experimentation · Causal inference",
     image: "/projects/ab-uplift.jpg",
     summary:
@@ -120,6 +157,17 @@ export const featuredProjects = [
   },
   {
     title: "NYC Flight Delay Analysis (SQL)",
+    category: "Analytics",
+    chart: {
+      type: "vbar", unit: "%",
+      title: "What drives NYC departure delays",
+      subtitle: "Share of 336K departures leaving late, by the same aircraft's previous flight",
+      bars: [
+        { label: "Previous flight on time", value: 22, color: "base" },
+        { label: "Previous flight 60+ min late", value: 85, color: "blue" },
+      ],
+      callout: "3.8× more likely to leave late",
+    },
     kicker: "Analytics · SQL",
     image: "/projects/nyc-flights.jpg",
     summary:
@@ -137,6 +185,7 @@ export const featuredProjects = [
 export const moreProjects = [
   {
     title: "EV Charging Station Analysis",
+    category: "Analytics",
     image: "/projects/ev-charging.jpg",
     summary:
       "Python pipeline into PostgreSQL/PostGIS, geospatial SQL on coverage, pricing, and operators, and Tableau dashboards on growth and rural coverage gaps.",
@@ -145,6 +194,7 @@ export const moreProjects = [
   },
   {
     title: "Joint Intent Detection System",
+    category: "GenAI",
     image: "/projects/joint-bert.jpg",
     summary:
       "Fine-tuned a Joint BERT model for intent classification and slot filling (96.5% intent accuracy), served as a real-time REST API.",
@@ -153,6 +203,7 @@ export const moreProjects = [
   },
   {
     title: "NBA Analytics Dashboard",
+    category: "Analytics",
     image: "/projects/nba.jpg",
     summary:
       "Interactive team and player dashboard in Plotly Dash with season, conference, and metric filters. Deployed on Render.",
@@ -164,6 +215,7 @@ export const moreProjects = [
   },
   {
     title: "RIT Institutional Research Dashboard",
+    category: "Analytics",
     image: "/projects/rit-powerbi.jpg",
     summary:
       "3-page Power BI dashboard on RIT's Common Data Set and IPEDS data: enrollment, admissions funnel, graduation rates, and financial aid.",
@@ -172,6 +224,7 @@ export const moreProjects = [
   },
   {
     title: "SkimLit: Biomedical Abstract Classifier",
+    category: "ML",
     image: "/projects/skimlit.jpg",
     summary:
       "Hybrid-embedding LSTM that labels sentences of medical abstracts as objective, methods, or results (83% accuracy).",
@@ -180,6 +233,7 @@ export const moreProjects = [
   },
   {
     title: "Chicken Disease Classification",
+    category: "ML",
     image: "/projects/chicken.jpg",
     summary:
       "VGG16 transfer-learning CNN (87% accuracy) with a DVC + Docker + GitHub Actions pipeline deploying to AWS EC2.",
@@ -191,6 +245,11 @@ export const moreProjects = [
 export const earlierWork = [
   { title: "Food Vision 101 (EfficientNetB0, 101 food classes)", href: "https://github.com/saikiran2508/FOOD_VISION_101_EfficientNetB0_Model" },
   { title: "Plant Disease Detection (CNN, 38 classes)", href: "https://github.com/saikiran2508/Plant_Disease_Detection" },
+];
+
+export const marquee = [
+  ["Python", "SQL", "GraphRAG", "MCP", "LightGBM", "PyTorch", "AWS Neptune", "A/B Testing", "Power BI", "Tableau", "PostgreSQL", "Docker"],
+  ["Hugging Face", "SHAP", "Optuna", "Causal Inference", "DynamoDB", "AWS Lambda", "BigQuery", "Neo4j", "Time-Series", "R", "GitHub Actions", "LLM Evaluation"],
 ];
 
 export const skills = [
