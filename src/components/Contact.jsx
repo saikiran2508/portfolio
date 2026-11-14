@@ -1,270 +1,98 @@
-import React, { useRef, useState, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Toaster, toast } from 'react-hot-toast';
-import Confetti from 'react-confetti';
-import ReCAPTCHA from "react-google-recaptcha"; // <-- NEW
+import Reveal from "./Reveal.jsx";
+import { MailIcon, PhoneIcon, LinkedInIcon, FileIcon } from "./Icons.jsx";
+import { profile } from "../data.js";
 
-import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
-import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
+const SERVICE = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || import.meta.env.VITE_EMAIL_JS_ACCESS_TOKEN;
+const formEnabled = Boolean(SERVICE && TEMPLATE && KEY);
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faEnvelope, faComment, faPaperPlane, faSpinner, faPhone } from "@fortawesome/free-solid-svg-icons";
+const input = "w-full rounded-xl border border-line bg-raised px-4 py-3 text-ink placeholder:text-muted outline-none focus:border-accent";
 
-const Contact = () => {
-  const formRef = useRef();
-  const captchaRef = useRef(); // <-- NEW
-  const [captchaToken, setCaptchaToken] = useState(null); // <-- NEW
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [windowDimension, setWindowDimension] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
+  const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const detectSize = () => {
-    setWindowDimension({
-      width: window.innerWidth,
-      height: window.innerHeight,
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', detectSize);
-    return () => {
-      window.removeEventListener('resize', detectSize);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (showConfetti) {
-      document.body.style.overflowX = "hidden";
-    } else {
-      document.body.style.overflowX = "";
-    }
-
-    return () => {
-      document.body.style.overflowX = "";
-    };
-  }, [showConfetti]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-
-    if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill all fields before submitting. ⚠️", {
-        duration: 3000,
-        position: 'bottom-right',
-      });
+    if (!formEnabled) {
+      window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent("Hello from your portfolio")}&body=${encodeURIComponent(`${form.message}\n\n${form.name} (${form.email})`)}`;
       return;
     }
-
-    if (!captchaToken) {
-      toast("Hold up! Gotta make sure you're not a spam bot, checkmark the CAPTCHA! 🧠🤖", {
-        icon: '🛡️',
-        duration: 3500,
-        position: 'bottom-right',
-      });
-      return;
+    setStatus("sending");
+    try {
+      await emailjs.send(SERVICE, TEMPLATE, {
+        from_name: form.name, to_name: "Sai Kiran", from_email: form.email,
+        to_email: profile.email, message: form.message,
+      }, { publicKey: KEY });
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("error");
     }
-
-    setLoading(true);
-
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Sai Kiran",
-          from_email: form.email,
-          to_email: "gsaikiran502@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_EMAIL_JS_ACCESS_TOKEN
-      )
-      .then(
-        () => {
-          setLoading(false);
-          setSuccess(true);
-          setForm({ name: "", email: "", message: "" });
-          toast.success("Message sent successfully!", {
-            duration: 3000,
-            position: 'bottom-right',
-          });
-          setShowConfetti(true);
-          setCaptchaToken(null);
-          captchaRef.current.reset(); // reset captcha after submit
-          setTimeout(() => {
-            setSuccess(false);
-            setShowConfetti(false);
-          }, 5000);
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-          toast.error("Something went wrong. Please try again.", {
-            duration: 3000,
-            position: 'bottom-right',
-          });
-        }
-      );
   };
 
-  const handleConfettiComplete = useCallback(() => {
-    setShowConfetti(false);
-  }, []);
+  const items = [
+    { icon: <MailIcon />, label: profile.email, href: `mailto:${profile.email}` },
+    { icon: <PhoneIcon />, label: profile.phone, href: profile.phoneHref },
+    { icon: <LinkedInIcon />, label: "linkedin.com/in/saikirangopu", href: profile.linkedin },
+  ];
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden no-select`}
-    >
-      <Toaster />
-      {showConfetti && (
-        <Confetti
-          width={windowDimension.width}
-          height={windowDimension.height}
-          recycle={false}
-          numberOfPieces={windowDimension.width > 768 ? 200 : 100}
-          onConfettiComplete={handleConfettiComplete}
-        />
-      )}
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
-      >
-        <div className="flex justify-between items-center mb-4">
-          <p className={styles.sectionSubText}>Get in touch</p>
-          <a
-            href="tel:+15853703742"
-            className="text-purple-500 hover:text-purple-400 transition-colors duration-300 flex items-center"
-          >
-            <FontAwesomeIcon icon={faPhone} className="mr-2" />
-            (585) 370-3742
-          </a>
-        </div>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
-
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
-        >
-          <div className="flex flex-col sm:flex-row gap-8">
-            <div className="flex-1">
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4">
-                  <FontAwesomeIcon
-                    icon={faUser}
-                    className="text-purple-500 mr-2"
-                  />{" "}
-                  Name
-                </span>
-                <input
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500"
-                />
-              </label>
-            </div>
-            <div className="flex-1">
-              <label className="flex flex-col">
-                <span className="text-white font-medium mb-4">
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className="text-purple-500 mr-2"
-                  />{" "}
-                  Email
-                </span>
-                <input
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="Your email"
-                  className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500"
-                />
-              </label>
-            </div>
+    <section id="contact" className="section">
+      <div className="grid gap-10 lg:grid-cols-2">
+        <Reveal>
+          <p className="eyebrow">Contact</p>
+          <h2 className="h2">Let's talk</h2>
+          <p className="mt-4 max-w-md leading-relaxed text-ink2">
+            I'm looking for full-time Data Scientist, ML Engineer, and Data Analyst roles starting after December 2026. The fastest way to reach me is email.
+          </p>
+          <ul className="mt-8 space-y-3">
+            {items.map((i) => (
+              <li key={i.href}>
+                <a href={i.href} target={i.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 text-ink hover:text-accent2">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-surface text-accent2">{i.icon}</span>
+                  {i.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {profile.resumes.map((r) => (
+              <a key={r.href} href={r.href} target="_blank" rel="noopener noreferrer" className="btn-ghost"><FileIcon /> {r.label}</a>
+            ))}
           </div>
-          <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">
-              <FontAwesomeIcon
-                icon={faComment}
-                className="text-purple-500 mr-2"
-              />{" "}
-              Message
-            </span>
-            <textarea
-              rows={7}
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="Hey Sai, love the website! I'd like to chat about some opportunities you might like! 🎉"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium transition-all duration-300 focus:ring-2 focus:ring-purple-500"
-            />
+        </Reveal>
+
+        <Reveal as="form" onSubmit={submit} className="card space-y-4 p-6 sm:p-8">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="block">
+              <span className="mb-2 block text-sm font-medium">Name</span>
+              <input required name="name" value={form.name} onChange={update} className={input} placeholder="Your name" autoComplete="name" />
+            </label>
+            <label className="block">
+              <span className="mb-2 block text-sm font-medium">Email</span>
+              <input required type="email" name="email" value={form.email} onChange={update} className={input} placeholder="you@company.com" autoComplete="email" />
+            </label>
+          </div>
+          <label className="block">
+            <span className="mb-2 block text-sm font-medium">Message</span>
+            <textarea required name="message" rows={6} value={form.message} onChange={update} className={input} placeholder="Hi Sai, I'd like to talk about a role on our team." />
           </label>
-
-          {/* 🤖 CAPTCHA Field */}
-          <div className="flex justify-center">
-            {/* <ReCAPTCHA
-              // sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-              onChange={(token) => setCaptchaToken(token)}
-              theme="dark"
-              ref={captchaRef}
-            /> */}
-          </div>
-          <span className="text-xs text-gray-400 text-center -mt-2">
-            Protected by reCAPTCHA Enterprise. ⚔️
-          </span>
-
-          <button
-            type="submit"
-            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center"
-            disabled={loading}
-          >
-            {loading ? (
-              <FontAwesomeIcon icon={faSpinner} spin />
-            ) : success ? (
-              <span className="flex items-center">
-                Sent Successfully
-                <FontAwesomeIcon icon={faPaperPlane} className="ml-2" />
-              </span>
-            ) : (
-              <span className="flex items-center">
-                Send Message
-                <FontAwesomeIcon icon={faPaperPlane} className="ml-2" />
-              </span>
-            )}
+          <button type="submit" disabled={status === "sending"} className="btn-primary w-full justify-center py-3 disabled:opacity-60">
+            {status === "sending" ? "Sending…" : formEnabled ? "Send message" : "Send via email app"}
           </button>
-        </form>
-      </motion.div>
-
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
-      >
-        <EarthCanvas />
-      </motion.div>
-    </div>
+          <p role="status" aria-live="polite" className="text-sm">
+            {status === "sent" && <span className="text-[#0ca30c]">✓ Message sent. I'll get back to you soon.</span>}
+            {status === "error" && <span className="text-[#e66767]">Something went wrong. Please email me directly at {profile.email}.</span>}
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
-};
-
-export default SectionWrapper(Contact, "contact");
+}
